@@ -9,7 +9,7 @@ const App = () => {
 
   const handleAddVideo = async () => {
     try {
-      await axios.post('http://localhost:5000/api/addVideo', { name, videoUrl });
+      await axios.post('https://studentyt.onrender.com/api/addVideo', { name, videoUrl });
       setVideoUrl('');
       fetchVideos();
     } catch (error) {
@@ -19,7 +19,7 @@ const App = () => {
 
   const fetchVideos = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/videos');
+      const response = await axios.get('https://studentyt.onrender.com/api/videos');
       setVideos(response.data);
     } catch (error) {
       console.error('Error fetching videos:', error);
