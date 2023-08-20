@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 
+
 const App = () => {
   const [name, setName] = useState('');
   const [videoUrl, setVideoUrl] = useState('');
@@ -47,7 +48,7 @@ const App = () => {
 
       <div className="navbar-container">
       <div className="logo">
-            <a href="/">Your Logo</a>
+            
           </div>
           <div className={`menu-icon ${isMenuOpen ? 'open' : ''}`} onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <div className="bar"></div>
@@ -65,6 +66,7 @@ const App = () => {
   
         </header>
   <h1>YouTube Video App</h1>
+  
   
   <div className="content">
 
