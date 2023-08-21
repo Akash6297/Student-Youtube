@@ -30,7 +30,7 @@ const Navbar = () => {
            
           </li>
           <li>
-            <a href="/study" className="button">
+            <a href="/main" className="button">
               <span>Study</span>
               </a>
               <span> <FontAwesomeIcon icon={faBook} className="icon" /></span>
