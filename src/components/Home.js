@@ -3,7 +3,7 @@ import React from 'react';
 
 const Home = () => {
   return (
-    <div>
+    <div className='home-container'>
       <h2>Welcome to Our Website</h2>
       <p>Insert your banner here.</p>
       <iframe

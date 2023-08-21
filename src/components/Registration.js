@@ -19,7 +19,7 @@ function Registration() {
   };
 
   return (
-    <div className='container'>
+    <div className='registration-container'>
       <h2>Register</h2>
       <input
         type="email"
