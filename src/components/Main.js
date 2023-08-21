@@ -54,7 +54,7 @@ const handleAddVideo = async () => {
       <input
         type="text"
         className="name-input"
-        placeholder="Your Name"
+        placeholder="Topic Name"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
