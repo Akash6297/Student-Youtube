@@ -1,29 +1,54 @@
 import React from 'react';
-
 import logo from '../images/Logo.webp';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faInfoCircle, faBook, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import '../css/navbar.css'; // Import the CSS file
+
 const Navbar = () => {
-    
-
-
-    return (
-        
-
-      <div className="navbar-container">
+  return (
+    <div className="navbar-container">
       <div className="logo">
-      <img src={logo} alt="Logo" />
-    </div>
-    
-          <nav className="navbar-menu">
-          <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="/about">About</a></li>
-              <li><a href="/main">Study</a></li>
-              <li><a href="/signup">Sign Up</a></li>
-            </ul>
-          </nav>
-       </div> 
-    );
+        <img src={logo} alt="Logo" />
+      </div>
 
+      <nav className="navbar-menu">
+        <ul>
+          <li>
+            <a href="/" className="button">
+              <span>Home</span>
+              </a>
+              <span> <FontAwesomeIcon icon={faHome} className="icon" /></span>
+              
+            
+          </li>
+          <li>
+            <a href="/about" className="button">
+              <span>About</span>
+              </a>
+              <span> <FontAwesomeIcon icon={faInfoCircle} className="icon" /></span>
+              
+           
+          </li>
+          <li>
+            <a href="/study" className="button">
+              <span>Study</span>
+              </a>
+              <span> <FontAwesomeIcon icon={faBook} className="icon" /></span>
+              
+            
+          </li>
+          <li>
+            <a href="/signup" className="button">
+              <span>Signup</span>
+              </a>
+              <span> <FontAwesomeIcon icon={faUserPlus} className="icon" /></span>
+              
+            
+          </li>
+        </ul>
+      </nav>
+    </div>
+  );
 };
 
 export default Navbar;

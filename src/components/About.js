@@ -5,7 +5,7 @@ const About = () => {
   return (
     <div className='about-container'>
       <br/>
-      <h1>Revolutionizing Student Learning: Introducing StudentYT</h1>
+      <h2>Revolutionizing Student Learning: Introducing StudentYT</h2>
       <br/>
       <h2>Introduction</h2>
       <p>In an age of digital distraction, finding a focused and effective environment for learning can be a challenge for students of all ages. With the rise of short-form content on platforms like YouTube, staying on track with your studies can sometimes feel like an uphill battle. But fear not! We've got a solution that puts the power back into your hands. Welcome to [Your Website Name], where distraction-free learning meets convenience.</p>

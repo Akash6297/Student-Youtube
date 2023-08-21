@@ -34,8 +34,44 @@
   }
   
   .navbar-menu a:hover {
-    color: #f3f312;
+    color: #000000;
   }
   
 
- 
+ /* navbar.css */
+.icon {
+  transition: transform 0.3s ease-in-out;
+}
+
+.icon:hover {
+  color: #fff700;
+  transform: scale(1.2); /* Increase the size on hover */
+}
+
+
+/* RGB Color Changing Text Animation */
+.navbar-menu ul li a {
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-menu ul li a:hover {
+  animation: rgbColorChange 3s infinite alternate;
+}
+
+@keyframes rgbColorChange {
+  0% {
+    color: rgb(255, 0, 0); /* Red */
+  }
+  33% {
+    color: rgb(0, 255, 0); /* Green */
+  }
+  66% {
+    color: rgb(0, 0, 255); /* Blue */
+  }
+  100% {
+    color: rgb(255, 0, 0); /* Red */
+  }
+}
