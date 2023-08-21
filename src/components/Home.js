@@ -53,7 +53,7 @@ const Home = () => {
         frameborder="0"
         allowfullscreen
       ></iframe>
-      <p>IContact Us.</p>
+      {/* <strong>Feel Free To Contact Us Here..</strong> */}
       <div className="contact-form">
       <h2>Contact Us</h2>
       <form onSubmit={handleSubmit}>
