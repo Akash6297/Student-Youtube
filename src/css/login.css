@@ -1,0 +1,31 @@
+/* Login.css */
+.login-container {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .login-container h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .login-container input {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 1rem 0;
+  }
+  
+  .login-container button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .login-container button:hover {
+    background-color: #0056b3;
+  }
+  

@@ -1,0 +1,22 @@
+/* Home.css */
+.home-container {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .home-container h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .home-container p {
+    font-size: 1.2rem;
+  }
+  
+  iframe {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    margin: 2rem 0;
+  }
+  

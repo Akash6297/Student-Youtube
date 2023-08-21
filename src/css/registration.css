@@ -1,0 +1,31 @@
+/* Registration.css */
+.registration-container {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .registration-container h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .registration-container input {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 1rem 0;
+  }
+  
+  .registration-container button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .registration-container button:hover {
+    background-color: #0056b3;
+  }
+  

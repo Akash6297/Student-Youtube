@@ -1,0 +1,15 @@
+/* About.css */
+.about-container {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .about-container h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .about-container p {
+    font-size: 1.2rem;
+  }
+  

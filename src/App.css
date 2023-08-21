@@ -11,9 +11,9 @@ body {
   max-width: 100%;
   margin: 0 auto;
   padding: 20px;
-  background-color: #fff;
+  
   border-radius: 5px;
-  /* min-height: 100vh; */
+  
   display: flex;
   flex-direction: column;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -24,6 +24,11 @@ h1 {
   text-align: center;
   color: #333;
   margin-bottom: 20px; 
+}
+.logo img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
 }
 
 .input-container {
@@ -53,93 +58,6 @@ input[type="text"] {
   margin-bottom: 10px; /* Add space between inputs */
 }
 
-button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-.video-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
-  gap: 20px;
-}
-
-
-.video-card {
-  position: relative;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #fff;
-  overflow: hidden;
-  margin-bottom: 20px; 
-}
-
-.video-name {
-  font-size: 12px;
-  font-weight: bold;
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  color: #333;
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 5px;
-}
-
-.video-iframe {
-  width: 100%;
-  max-width: 560px;
-  height: 315px;
-}
-
-iframe {
-  width: 100%;
-  max-width: 560px;
-  height: 315px;
-}
-
-.delete-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #ff0000;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 5px 10px;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.name-input,
-.video-url-input {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.add-button {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
 /* Add responsive styles for smaller screens */
 @media (max-width: 768px) {
   .container {
@@ -162,23 +80,7 @@ iframe {
   }
 }
 
-.video-card {
-  position: relative;
-  margin-bottom: 20px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #fff;
-}
 
-.video-name {
-  font-size: 14px; /* Adjust the font size as needed */
-  font-weight: bold;
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  color: #333;
-}
 
 /* navbar.css */
 
@@ -226,7 +128,7 @@ iframe {
   color: #333;
   padding: 20px 0;
   text-align: center;
-  position: sticky;
+  position:static;
   bottom: 0;
 }
 
@@ -236,30 +138,12 @@ iframe {
   margin: 0 auto;
 }
 
-.social-icons {
-  margin-bottom: 20px;
-}
 
-.social-icons a {
-  color: #fff;
-  font-size: 24px;
-  margin: 0 10px;
-  transition: color 0.2s;
-}
 
-.social-icons a:hover {
-  color: #f39c12; /* Change the color on hover */
-}
 
-.address,
-.copywrite {
-  margin-bottom: 10px;
-}
 
-.address p,
-.copywrite p {
-  margin: 0;
-}
+
+
 
 /* Add space after the navbar */
 .navbar + .content {

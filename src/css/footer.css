@@ -1,0 +1,38 @@
+ /* footer.css */
+ .footer {
+    background-color: #ff4d00;
+    color: #333;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .social-icons {
+    margin-bottom: 20px;
+  }
+  
+  .social-icons a {
+    color: #fff;
+    font-size: 24px;
+    margin: 0 10px;
+    transition: color 0.2s;
+  }
+  
+  .social-icons a:hover {
+    color: #ff4d00; /* Change the color on hover */
+  }
+  
+  .address,
+  .copywrite {
+    margin-bottom: 10px;
+  }
+  
+  .address p,
+  .copywrite p {
+    margin: 0;
+  }
+  
