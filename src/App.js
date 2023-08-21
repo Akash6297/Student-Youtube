@@ -5,17 +5,17 @@ import Home from './components/Home';
 import About from './components/About';
 import Navbar from './components/Navbar';
 import Main from './components/Main';
-import Registration from './components/Registration';
+import SignUp from './components/SignUp';
+import SignIn from './components/SignIn';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import Footer from './components/Footer';
 import './css/footer.css';
 import './css/home.css';
 import './css/about.css';
-import './css/login.css';
-import './css/logout.css';
 import './css/main.css';
 import './css/navbar.css';
-import './css/registration.css';
+import './css/signin.css';
+import './css/signup.css';
 
 
 const App = () => {
@@ -34,7 +34,8 @@ const App = () => {
           <Route exact path="/" component={Home} />
           <Route exact path="/about" component={About} />
           <Route exact path="/main" component={Main} />
-          <Route exact path="/signup" component={Registration} />
+          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/signin" component={SignIn} />
           <Redirect to="/" />
         </Switch>
        
