@@ -1,6 +1,6 @@
 import React from 'react';
 
-import logo from '../images/logo.png';
+import logo from '../images/Logo.webp';
 const Navbar = () => {
     
 
@@ -10,7 +10,7 @@ const Navbar = () => {
 
       <div className="navbar-container">
       <div className="logo">
-      <img src={logo} alt="Your Logo" />
+      <img src={logo} alt="Logo" />
     </div>
     
           <nav className="navbar-menu">
