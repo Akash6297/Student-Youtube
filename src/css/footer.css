@@ -1,38 +1,29 @@
- /* footer.css */
- .footer {
-    background-color: #ff4d00;
-    color: #333;
-    padding: 20px 0;
-    text-align: center;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .social-icons {
-    margin-bottom: 20px;
-  }
-  
-  .social-icons a {
-    color: #fff;
-    font-size: 24px;
-    margin: 0 10px;
-    transition: color 0.2s;
-  }
-  
-  .social-icons a:hover {
-    color: #ff4d00; /* Change the color on hover */
-  }
-  
-  .address,
-  .copywrite {
-    margin-bottom: 10px;
-  }
-  
-  .address p,
-  .copywrite p {
-    margin: 0;
-  }
-  
+/* footer.css */
+.footer-container {
+  background-color: #ff4d00;
+  color: #000000;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-icons {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-icons li {
+  margin: 0 20px;
+  transition: color 0.3s ease-in-out; /* Add color transition effect */
+}
+
+.footer-icons li a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.footer-icons li a:hover {
+  color: #ffb951; /* Change the color on hover (you can use any color you like) */
+}
