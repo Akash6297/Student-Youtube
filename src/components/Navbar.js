@@ -1,9 +1,9 @@
-import React, { useState  } from 'react';
+import React from 'react';
 
 import logo from '../images/logo.png';
 const Navbar = () => {
     
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
 
     return (
         
@@ -12,17 +12,13 @@ const Navbar = () => {
       <div className="logo">
       <img src={logo} alt="Your Logo" />
     </div>
-    <div className={`menu-icon ${isMenuOpen ? 'open' : ''}`} onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            <div className="bar"></div>
-            <div className="bar"></div>
-            <div className="bar"></div>
-          </div>
-          <nav className={`navbar-menu ${isMenuOpen ? 'open' : ''}`}>
+    
+          <nav className="navbar-menu">
           <ul>
               <li><a href="/">Home</a></li>
               <li><a href="/about">About</a></li>
               <li><a href="/main">Main</a></li>
-              <li><a href="/signup">Sign In</a></li>
+              <li><a href="/signup">Sign Up</a></li>
             </ul>
           </nav>
        </div> 

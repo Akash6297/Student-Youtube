@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../css/registration.css';
 
 function Registration() {
   const [email, setEmail] = useState('');
@@ -18,7 +19,7 @@ function Registration() {
   };
 
   return (
-    <div>
+    <div className='container'>
       <h2>Register</h2>
       <input
         type="email"
