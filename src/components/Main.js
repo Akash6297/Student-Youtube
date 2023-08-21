@@ -63,7 +63,7 @@ const handleAddVideo = async () => {
       <input
         type="text"
         className="video-url-input"
-        placeholder="Enter YouTube Video URL or Playlist URL"
+        placeholder="Enter YouTube Video URL"
         value={videoUrl}
         onChange={(e) => setVideoUrl(e.target.value)}
       />
