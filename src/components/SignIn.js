@@ -1,64 +1,58 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import { useHistory, Link } from 'react-router-dom';
 
-function SignIn() {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-  });
+const SignInForm = ({ handleSignInSuccess }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const history = useHistory();
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = async (e) => {
+  const handleSignIn = async (e) => {
     e.preventDefault();
 
     try {
-      // Send a POST request to the server for user sign-in
-      const response = await fetch('https://studentyt.onrender.com/api/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        console.log('Sign in successful');
-        // Add any success handling here, e.g., redirect to dashboard
-      } else {
-        console.error('Sign in failed');
-        // Handle sign-in failure, e.g., display an error message
-      }
+      await axios.post('https://studentyt.onrender.com/api/signin', { email, password });
+      alert('Signed in successfully');
+      // Call the parent component function to handle successful sign-in
+      handleSignInSuccess();
+      // Redirect to the home page after successful sign-in
+      history.push('/main');
     } catch (error) {
-      console.error('Sign in error:', error);
-      // Handle network or other errors
+      alert('Invalid email or password');
     }
+
+    // Clear form fields after submission
+    setEmail('');
+    setPassword('');
   };
 
   return (
-    <div className="auth-container">
+    <div className="contact-form">
       <h2>Sign In</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSignIn}>
         <input
           type="email"
-          name="email"
           placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
         />
         <input
           type="password"
-          name="password"
           placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
         />
         <button type="submit">Sign In</button>
+        <a href="/reset">Forgot?</a>
+        <p>Don't have an Account?
+        <Link to="/signup">Sign Up</Link>
+        </p>
+        
       </form>
     </div>
   );
-}
+};
 
-export default SignIn;
+export default SignInForm;

@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Main from './components/Main';
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
+import Reset from './components/reset';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import Footer from './components/Footer';
 import './css/footer.css';
@@ -36,6 +37,8 @@ const App = () => {
           <Route exact path="/main" component={Main} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/signin" component={SignIn} />
+          <Route exact path="/reset" component={Reset} />
+
           <Redirect to="/" />
         </Switch>
        
