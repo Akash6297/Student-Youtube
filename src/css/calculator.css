@@ -1,6 +1,6 @@
 .calculator {
     width: 300px;
-    background-color: #000000;
+    background-color: #403f3f;
     border: 2px solid #ccc;
     border-radius: 5px;
     margin: 0 auto;
@@ -34,7 +34,7 @@
     font-size: 20px;
     padding: 15px;
     text-align: center;
-    background-color: #333;
+    background-color: #b5b3b3;
     color: #000000;
     border: none;
     border-radius: 5px;

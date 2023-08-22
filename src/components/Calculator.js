@@ -1,4 +1,3 @@
-/* eslint-disable no-eval */
 import React, { useState } from 'react';
 import '../css/calculator.css';
 
@@ -25,7 +24,7 @@ const Calculator = () => {
       setCurrentValue(parseFloat(display));
       setDisplay('0');
     } else {
-      const result = eval(`${currentValue} ${operator} ${display}`);
+      const result = performOperation(currentValue, parseFloat(display), operator);
       setOperator(op);
       setCurrentValue(result);
       setDisplay('0');
@@ -35,7 +34,7 @@ const Calculator = () => {
 
   const handleEqualsClick = () => {
     if (operator !== null) {
-      const result = eval(`${currentValue} ${operator} ${display}`);
+      const result = performOperation(currentValue, parseFloat(display), operator);
       setOperator(null);
       setCurrentValue(result);
       setDisplay(result.toString());
@@ -48,6 +47,22 @@ const Calculator = () => {
     setCurrentValue(null);
     setOperator(null);
     setInputHistory('');
+  };
+
+  const performOperation = (num1, num2, op) => {
+    switch (op) {
+      case '+':
+        return num1 + num2;
+      case '-':
+        return num1 - num2;
+      case '*':
+        return num1 * num2;
+      case '/':
+        if (num2 === 0) return 'Error';
+        return num1 / num2;
+      default:
+        return num2;
+    }
   };
 
   const handleScientificFunction = (func) => {
@@ -108,7 +123,7 @@ const Calculator = () => {
         <button className="btn" onClick={() => handleScientificFunction('sqrt')}>√</button>
         <button className="btn" onClick={() => handleScientificFunction('square')}>x²</button>
         <button className="btn" onClick={() => handleScientificFunction('percent')}>%</button>
-        <button className="btn" onClick={() => handleScientificFunction('invert')}>±</button>
+        <button className="btn" onClick={() => handleScientificFunction('factorial')}>!</button>
         <button className="btn" onClick={() => handleDigitClick('7')}>7</button>
         <button className="btn" onClick={() => handleDigitClick('8')}>8</button>
         <button className="btn" onClick={() => handleDigitClick('9')}>9</button>
@@ -125,10 +140,11 @@ const Calculator = () => {
         <button className="btn" onClick={handleClearClick}>C</button>
         <button className="btn" onClick={handleEqualsClick}>=</button>
         <button className="btn" onClick={() => handleOperatorClick('/')}>/</button>
-        <button className="btn" onClick={() => handleScientificFunction('factorial')}>!</button>
+        
       </div>
     </div>
   );
 };
 
 export default Calculator;
+
