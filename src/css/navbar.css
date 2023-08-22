@@ -79,10 +79,13 @@
 
 /* Media query for screens smaller than 768px */
 @media screen and (max-width: 768px) {
- 
-
+  
   .navbar-menu ul {
     flex-direction: column;
+  }
+
+  .navbar-menu ul {
+    flex-direction: row;
   }
 
   .navbar-menu li {

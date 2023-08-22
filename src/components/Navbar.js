@@ -16,21 +16,25 @@ const Navbar = () => {
         <img src={logo} alt="Logo" />
       </div>
 
-      <button className="menu__icon" onClick={toggleMenu}>
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      {window.innerWidth <= 768 && (
+        <button className="menu__icon" onClick={toggleMenu}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      )}
 
       {menuVisible && (
+        
 
       <nav className="navbar-menu">
+        
         <ul>
           <li>
             <a href="/" className="button">
               <span>Home</span>
               </a>
-              <span> <FontAwesomeIcon icon={faHome} className="icon" /></span>
+              <span> <FontAwesomeIcon icon={faHome} className="icon" /> </span>
               
             
           </li>
@@ -38,7 +42,7 @@ const Navbar = () => {
             <a href="/about" className="button">
               <span>About</span>
               </a>
-              <span> <FontAwesomeIcon icon={faInfoCircle} className="icon" /></span>
+              <span> <FontAwesomeIcon icon={faInfoCircle} className="icon" /> </span>
               
            
           </li>
@@ -46,7 +50,7 @@ const Navbar = () => {
             <a href="/main" className="button">
               <span>Study</span>
               </a>
-              <span> <FontAwesomeIcon icon={faBook} className="icon" /></span>
+              <span> <FontAwesomeIcon icon={faBook} className="icon" /> </span>
               
             
           </li>
@@ -54,7 +58,7 @@ const Navbar = () => {
             <a href="/signup" className="button">
               <span>Signup</span>
               </a>
-              <span> <FontAwesomeIcon icon={faUserPlus} className="icon" /></span>
+              <span> <FontAwesomeIcon icon={faUserPlus} className="icon" /> </span>
               
             
           </li>
