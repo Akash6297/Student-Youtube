@@ -63,3 +63,157 @@
     font-weight: bold;
   }
   
+
+  /* StudyPage.css */
+
+
+
+/* Floating icons */
+.floating-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007BFF; /* Background color of the icons */
+  color: white; /* Icon color */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+}
+
+.floating-icon.active {
+  background-color: #FF5722; /* Change background color when active */
+}
+
+
+
+/* Floating content areas */
+.floating-content {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background-color: white;
+  color: #333;
+  width: 300px;
+  max-height: 400px;
+  overflow-y: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  display: none;
+}
+
+.floating-content.visible {
+  display: block; /* Show when active */
+}
+
+/* Styles for the To-Do icon */
+.todo-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #3498db;
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 1000;
+}
+
+.todo-icon:hover {
+  background-color: #2980b9;
+}
+
+/* Styles for the Note icon */
+.note-icon {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  background-color: #e74c3c;
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 1000;
+}
+
+.note-icon:hover {
+  background-color: #c0392b;
+}
+
+/* Styles for the To-Do content */
+.todo-content {
+  position: fixed;
+  bottom: 20px;
+  right: 80px;
+  padding-right: 30px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+  height: 300px;
+  display: none;
+  z-index: 1000;
+}
+
+/* Styles for the Note content */
+.note-content {
+  position: fixed;
+  bottom: 90px;
+  right: 80px;
+  padding-right: 30px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 350px;
+  height: 300px;
+  display: none;
+  z-index: 1000;
+}
+
+/* Styles for the To-Do textarea */
+.todo-textarea {
+  width: 100%;
+  height: 150px; /* Adjust the height as needed */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: none; /* Disable textarea resizing */
+}
+
+/* Styles for the Note textarea */
+.note-textarea {
+  width: 100%;
+  height: 150px; /* Adjust the height as needed */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: none; /* Disable textarea resizing */
+}
+
+/* Image */
+.icon-image {
+  position: absolute;
+  top: 50%; /* Adjust this value to center the image vertically */
+  left: 50%; /* Adjust this value to center the image horizontally */
+  transform: translate(-50%, -50%);
+  width: 60%; /* Adjust the width as needed */
+  height: auto; /* Maintain the image's aspect ratio */
+  z-index: 2; /* Place the image above the icon */
+}
