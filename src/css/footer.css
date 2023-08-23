@@ -1,5 +1,5 @@
 /* footer.css */
-.footer-container {
+/* .footer-container {
   background-color: #ff4d00;
   color: #fff;
   padding: 20px 0;
@@ -16,7 +16,7 @@
 
 .footer-icons li {
   margin: 0 20px;
-  transition: color 0.3s ease-in-out; /* Add color transition effect */
+  transition: color 0.3s ease-in-out; 
 }
 
 .footer-icons li a {
@@ -25,5 +25,52 @@
 }
 
 .footer-icons li a:hover {
-  color: #ffb951; /* Change the color on hover (you can use any color you like) */
+  color: #ffb951; 
+} */
+
+
+/* Styles for the footer */
+.footer {
+  margin-top: auto; /* Push the footer to the bottom */
+  background-color: #ff4d00;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
 }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  
+  .footer-bottom {
+    text-align: center;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #ffffff;
+  }
+  
+  .footer-icons {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .footer-icons li {
+    margin: 0 20px;
+    transition: color 0.3s ease-in-out; 
+  }
+  
+  .footer-icons li a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .footer-icons li a:hover {
+    color: #ffb951; 
+  } 
+

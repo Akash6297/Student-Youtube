@@ -130,9 +130,28 @@
   transition: background-color 0.3s ease;
   z-index: 1000;
 }
+.chat-icon{
+  position: fixed;
+  bottom: 230px;
+  right: 20px;
+  background-color: #fff;
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 1000;
+}
 
+.chat-icon:hover {
+  background-color: red;
+}
 .todo-icon:hover {
-  background-color: #ccc;
+  background-color: #fff;
 }
 
 /* Styles for the Note icon */
@@ -154,13 +173,27 @@
 }
 
 .note-icon:hover {
-  background-color: #ccc;
+  background-color: #fff;
 }
 
 /* Styles for the To-Do content */
 .todo-content {
   position: fixed;
   bottom: 20px;
+  right: 80px;
+  padding-right: 30px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+  height: 300px;
+  display: none;
+  z-index: 1000;
+}
+
+.chat-content{
+  position: fixed;
+  bottom: 230px;
   right: 80px;
   padding-right: 30px;
   background-color: #fff;
@@ -238,7 +271,7 @@
 }
 
 .calculator-icon:hover {
-  background-color: #ccc; /* Change background color when active */
+  background-color: #fff; /* Change background color when active */
 }
 
 /* Styles for the Calculator content */
@@ -299,3 +332,54 @@
 }
 
 /* Add more styles as needed for your calculator component */
+@media screen and (max-width: 768px) {
+  .video-card {
+    width: 100%;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+/* Floating content areas */
+.floating-content {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background-color: white;
+  color: #333;
+  width: 200px;
+  max-height: 400px;
+  overflow-y: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  display: none;
+}
+
+.icon-image {
+  position: absolute;
+  top: 50%; /* Adjust this value to center the image vertically */
+  left: 50%; /* Adjust this value to center the image horizontally */
+  transform: translate(-50%, -50%);
+  width: 40%; /* Adjust the width as needed */
+  height: auto; /* Maintain the image's aspect ratio */
+  z-index: 2; /* Place the image above the icon */
+}
+.calculator-icon {
+  width: 40px;
+  height: 40px;
+}
+.note-icon {
+  width: 40px;
+  height: 40px;
+}
+.todo-icon {
+  width: 40px;
+  height: 40px;
+}
+.chat-icon {
+  width: 40px;
+  height: 40px;
+}
+}
