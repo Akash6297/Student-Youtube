@@ -1,15 +1,11 @@
-import React, { useState } from 'react';
+import React  from 'react';
 import logo from '../images/Logo.webp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faInfoCircle, faBook, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import '../css/navbar.css'; // Import the CSS file
 
 const Navbar = () => {
-  const [menuVisible, setMenuVisible] = useState(false);
 
-  const toggleMenu = () => {
-    setMenuVisible(!menuVisible);
-  };
   return (
     <div className="navbar-container">
       <div className="logo">
@@ -17,14 +13,14 @@ const Navbar = () => {
       </div>
 
       {window.innerWidth <= 768 && (
-        <button className="menu__icon" onClick={toggleMenu}>
+        <button className="menu__icon" >
           <span></span>
           <span></span>
           <span></span>
         </button>
       )}
 
-      {menuVisible && (
+      {/* {menuVisible && ( */}
         
 
       <nav className="navbar-menu">
@@ -64,7 +60,7 @@ const Navbar = () => {
           </li>
         </ul>
       </nav>
-       )}
+       {/* )} */}
     </div>
   );
 };
