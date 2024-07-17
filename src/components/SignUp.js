@@ -1,4 +1,6 @@
+/* eslint-disable jsx-a11y/anchor-has-content */
 import React, { useState } from 'react';
+// import { Link } from 'react-router-dom';
 
 function SignUp() {
   const [formData, setFormData] = useState({
@@ -65,6 +67,15 @@ function SignUp() {
         />
         <button type="submit">Register</button>
       </form>
+      <br/>
+      <br/>
+
+      <span>Already have an account?</span>
+      <br/>
+      <a href="/signin"className="button">
+      <span>Sign in here</span>
+      </a>
+      
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory} from 'react-router-dom';
 
 const SignInForm = ({ handleSignInSuccess }) => {
   const [email, setEmail] = useState('');
@@ -45,10 +45,18 @@ const SignInForm = ({ handleSignInSuccess }) => {
           required
         />
         <button type="submit">Sign In</button>
+
+        <br/>
+        <br/>
         <a href="/reset">Forgot?</a>
-        <p>Don't have an Account?
-        <Link to="/signup">Sign Up</Link>
-        </p>
+        
+       <br/>
+       <br/>
+            <span>Don't have an Account?</span>
+            <a href="/signup"className="button">
+            <span>Sign Up</span>
+            </a>
+     
         
       </form>
     </div>
