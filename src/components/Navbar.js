@@ -1,10 +1,16 @@
-import React  from 'react';
+import React, { useContext } from 'react';
 import logo from '../images/Logo.webp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faInfoCircle, faBook, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import '../css/navbar.css'; // Import the CSS file
+import { AuthContext } from '../AuthContext';
 
 const Navbar = () => {
+  const { user, signOut } = useContext(AuthContext);
+
+  const handleSignOut = () => {
+    signOut();
+  };
 
   return (
     <div className="navbar-container">
@@ -20,47 +26,49 @@ const Navbar = () => {
         </button>
       )}
 
-      {/* {menuVisible && ( */}
-        
-
       <nav className="navbar-menu">
-        
         <ul>
           <li>
             <a href="/" className="button">
               <span>Home</span>
-              </a>
-              <span> <FontAwesomeIcon icon={faHome} className="icon" /> </span>
-              
-            
+              <FontAwesomeIcon icon={faHome} className="icon" />
+            </a>
           </li>
           <li>
             <a href="/about" className="button">
               <span>About</span>
-              </a>
-              <span> <FontAwesomeIcon icon={faInfoCircle} className="icon" /> </span>
-              
-           
+              <FontAwesomeIcon icon={faInfoCircle} className="icon" />
+            </a>
           </li>
           <li>
             <a href="/main" className="button">
               <span>Study</span>
-              </a>
-              <span> <FontAwesomeIcon icon={faBook} className="icon" /> </span>
-              
-            
+              <FontAwesomeIcon icon={faBook} className="icon" />
+            </a>
           </li>
-          <li>
-            <a href="/signup" className="button">
-              <span>Signup</span>
+          {user ? (
+            <>
+              <li>
+                <span className="button">
+                  <span>{user.username}</span>
+                </span>
+              </li>
+              <li>
+                <button onClick={handleSignOut} className="button">
+                  Sign Out
+                </button>
+              </li>
+            </>
+          ) : (
+            <li>
+              <a href="/signup" className="button">
+                <span>Signup</span>
+                <FontAwesomeIcon icon={faUserPlus} className="icon" />
               </a>
-              <span> <FontAwesomeIcon icon={faUserPlus} className="icon" /> </span>
-              
-            
-          </li>
+            </li>
+          )}
         </ul>
       </nav>
-       {/* )} */}
     </div>
   );
 };

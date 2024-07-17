@@ -1,27 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
-import { useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import { AuthContext } from '../AuthContext';
 
-const SignInForm = ({ handleSignInSuccess }) => {
+const SignInForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { signIn } = useContext(AuthContext);
   const history = useHistory();
 
   const handleSignIn = async (e) => {
     e.preventDefault();
 
     try {
-      await axios.post('https://studentyt.onrender.com/api/signin', { email, password });
+      const response = await axios.post('https://studentyt.onrender.com/api/signin', { email, password });
+      const userData = response.data.user;
+
+      // Save user data in context
+      signIn(userData);
+
       alert('Signed in successfully');
-      // Call the parent component function to handle successful sign-in
-      handleSignInSuccess();
-      // Redirect to the home page after successful sign-in
       history.push('/main');
     } catch (error) {
       alert('Invalid email or password');
     }
 
-    // Clear form fields after submission
     setEmail('');
     setPassword('');
   };
