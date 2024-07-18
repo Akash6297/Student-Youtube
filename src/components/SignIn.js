@@ -20,7 +20,7 @@ const SignInForm = () => {
       signIn(userData);
 
       alert('Signed in successfully');
-      history.push('/main');
+      history.push('/main'); // Redirect to main page after successful sign-in
     } catch (error) {
       alert('Invalid email or password');
     }
@@ -53,14 +53,12 @@ const SignInForm = () => {
         <br/>
         <a href="/reset">Forgot?</a>
         
-       <br/>
-       <br/>
-            <span>Don't have an Account?</span>
-            <a href="/signup"className="button">
-            <span>Sign Up</span>
-            </a>
-     
-        
+        <br/>
+        <br/>
+        <span>Don't have an Account?</span>
+        <a href="/signup" className="button">
+          <span>Sign Up</span>
+        </a>
       </form>
     </div>
   );

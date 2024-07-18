@@ -1,9 +1,12 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/img-redundant-alt */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import Calculator from './Calculator';
 import ChatGPT from './ChatGPT';
 import '../css/main.css';
+import { AuthContext } from '../AuthContext'; // Import AuthContext
+
 const Main = () => {
   const [name, setName] = useState('');
   const [videoUrl, setVideoUrl] = useState('');
@@ -14,12 +17,16 @@ const Main = () => {
   const [calculatorVisible, setCalculatorVisible] = useState(false);
 
   const [chatVisible, setChatVisible] = useState(false);
+
+  const { user } = useContext(AuthContext); // Get user from context
+
   const toggleChat = () => {
     setChatVisible(!chatVisible);
     setTodoVisible(false); 
     setNoteVisible(false); 
     setCalculatorVisible(false); // Hide other content when showing ChatGPT
-};
+  };
+
   const toggleTodo = () => {
     setTodoVisible(!todoVisible);
     setCalculatorVisible(false);
@@ -56,7 +63,7 @@ const Main = () => {
 
   const handleAddVideo = async () => {
     try {
-      await axios.post('https://studentyt.onrender.com/api/addVideo', { name, videoUrl });
+      await axios.post('https://studentyt.onrender.com/api/addVideo', { name, videoUrl, username: user.username });
       setVideoUrl('');
       fetchVideos();
     } catch (error) {
@@ -66,7 +73,7 @@ const Main = () => {
 
   const fetchVideos = async () => {
     try {
-      const response = await axios.get('https://studentyt.onrender.com/api/videos');
+      const response = await axios.get(`https://studentyt.onrender.com/api/videos?username=${user.username}`);
       setVideos(response.data);
     } catch (error) {
       console.error('Error fetching videos:', error);
@@ -88,26 +95,21 @@ const Main = () => {
 
   return (
     <div className="content">
+      {/* Floating ChatGPT Icon */}
+      <div className={`floating-icon chat-icon ${chatVisible ? 'active' : ''}`} onClick={toggleChat}>
+        <div className="icon-container">
+          <i className="fas fa-list"></i>
+        </div>
+      </div>
 
-      
-           {/* Floating ChatGPT Icon */}
-            <div
-              className={`floating-icon chat-icon ${chatVisible ? 'active' : ''}`}
-              onClick={toggleChat}
-            >
-              <div className="icon-container">
-                <i className="fas fa-list"></i>
-              </div>
-            </div>
+      {/* ChatGPT content */}
+      {chatVisible && (
+        <div className="floating-content chat-content">
+          <h2>Chat with ChatGPT</h2>
+          <ChatGPT />
+        </div>
+      )}
 
-
-            {/* ChatGPT content */}
-            {chatVisible && (
-                <div className="floating-content chat-content">
-                    <h2>Chat with ChatGPT</h2>
-                    <ChatGPT />
-                </div>
-            )}
       <div className={`floating-icon todo-icon ${todoVisible ? 'active' : ''}`} onClick={toggleTodo}>
         <div className="icon-container">
           <i className="fas fa-list"></i>
