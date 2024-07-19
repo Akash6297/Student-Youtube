@@ -1,4 +1,5 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom'; // Assuming you are using react-router-dom for navigation
 import logo from '../images/Logo.webp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faInfoCircle, faBook, faUserPlus } from '@fortawesome/free-solid-svg-icons';
@@ -7,44 +8,47 @@ import { AuthContext } from '../AuthContext';
 
 const Navbar = () => {
   const { user, signOut } = useContext(AuthContext);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleSignOut = () => {
     signOut();
   };
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <div className="navbar-container">
+    <header className="navbar-container">
       <div className="logo">
         <img src={logo} alt="Logo" />
       </div>
 
-      {window.innerWidth <= 768 && (
-        <button className="menu__icon" >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      )}
+      <button className="menu-icon" onClick={toggleMenu} aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-      <nav className="navbar-menu">
+      <nav className={`navbar-menu ${isMenuOpen ? 'open' : ''}`}>
         <ul>
           <li>
-            <a href="/" className="button">
+            <Link to="/" className="button">
               <span>Home</span>
               <FontAwesomeIcon icon={faHome} className="icon" />
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/about" className="button">
+            <Link to="/about" className="button">
               <span>About</span>
               <FontAwesomeIcon icon={faInfoCircle} className="icon" />
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/main" className="button">
+            <Link to="/main" className="button">
               <span>Study</span>
               <FontAwesomeIcon icon={faBook} className="icon" />
-            </a>
+            </Link>
           </li>
           {user ? (
             <>
@@ -61,15 +65,15 @@ const Navbar = () => {
             </>
           ) : (
             <li>
-              <a href="/signup" className="button">
+              <Link to="/signup" className="button">
                 <span>Signup</span>
                 <FontAwesomeIcon icon={faUserPlus} className="icon" />
-              </a>
+              </Link>
             </li>
           )}
         </ul>
       </nav>
-    </div>
+    </header>
   );
 };
 

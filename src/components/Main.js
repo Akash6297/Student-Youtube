@@ -61,9 +61,29 @@ const Main = () => {
     element.click();
   };
 
+  const extractVideoId = (url) => {
+    const urlObj = new URL(url);
+    let videoId = '';
+
+    if (urlObj.hostname.includes('youtube.com')) {
+      videoId = urlObj.searchParams.get('v');
+    } else if (urlObj.hostname.includes('youtu.be')) {
+      videoId = urlObj.pathname.slice(1);
+    }
+
+    return videoId;
+  };
+
   const handleAddVideo = async () => {
+    const videoId = extractVideoId(videoUrl);
+
+    if (!videoId) {
+      alert('Invalid YouTube URL');
+      return;
+    }
+
     try {
-      await axios.post('https://studentyt.onrender.com/api/addVideo', { name, videoUrl, username: user.username });
+      await axios.post('https://studentyt.onrender.com/api/addVideo', { name, videoUrl: `https://www.youtube.com/embed/${videoId}`, username: user.username });
       setVideoUrl('');
       fetchVideos();
     } catch (error) {
@@ -209,7 +229,7 @@ const Main = () => {
               title={`Video ${index + 1}`}
               width="560"
               height="315"
-              src={`https://www.youtube.com/embed/${video.videoId}`}
+              src={video.videoUrl}
               frameBorder="0"
               allowFullScreen
             ></iframe>
