@@ -5,26 +5,26 @@ import axios from 'axios';
 import Calculator from './Calculator';
 import ChatGPT from './ChatGPT';
 import '../css/main.css';
-import { AuthContext } from '../AuthContext'; // Import AuthContext
+import { AuthContext } from '../AuthContext';
 
 const Main = () => {
   const [name, setName] = useState('');
   const [videoUrl, setVideoUrl] = useState('');
+  const [subject, setSubject] = useState('');
   const [videos, setVideos] = useState([]);
 
   const [todoVisible, setTodoVisible] = useState(false);
   const [noteVisible, setNoteVisible] = useState(false);
   const [calculatorVisible, setCalculatorVisible] = useState(false);
-
   const [chatVisible, setChatVisible] = useState(false);
 
-  const { user } = useContext(AuthContext); // Get user from context
+  const { user } = useContext(AuthContext);
 
   const toggleChat = () => {
     setChatVisible(!chatVisible);
-    setTodoVisible(false); 
-    setNoteVisible(false); 
-    setCalculatorVisible(false); // Hide other content when showing ChatGPT
+    setTodoVisible(false);
+    setNoteVisible(false);
+    setCalculatorVisible(false);
   };
 
   const toggleTodo = () => {
@@ -48,11 +48,9 @@ const Main = () => {
     setChatVisible(false);
   };
 
-  // State to store the content of the To-Do and Note sections
   const [todoContent, setTodoContent] = useState('');
   const [noteContent, setNoteContent] = useState('');
 
-  // Function to handle the download of content as a text file
   const downloadContent = (content, fileName) => {
     const element = document.createElement('a');
     const file = new Blob([content], { type: 'text/plain' });
@@ -83,8 +81,9 @@ const Main = () => {
     }
 
     try {
-      await axios.post('https://studentyt.onrender.com/api/addVideo', { name, videoUrl: `https://www.youtube.com/embed/${videoId}`, username: user.username });
+      await axios.post('https://studentyt.onrender.com/api/addVideo', { name, videoUrl: `https://www.youtube.com/embed/${videoId}`, username: user.username, subject });
       setVideoUrl('');
+      setSubject('');
       fetchVideos();
     } catch (error) {
       console.error('Error adding video:', error);
@@ -110,19 +109,19 @@ const Main = () => {
   };
 
   useEffect(() => {
-    fetchVideos();
-  }, []);
+    if (user) {
+      fetchVideos();
+    }
+  }, [user]);
 
   return (
     <div className="content">
-      {/* Floating ChatGPT Icon */}
       <div className={`floating-icon chat-icon ${chatVisible ? 'active' : ''}`} onClick={toggleChat}>
         <div className="icon-container">
           <i className="fas fa-list"></i>
         </div>
       </div>
 
-      {/* ChatGPT content */}
       {chatVisible && (
         <div className="floating-content chat-content">
           <h2>Chat with ChatGPT</h2>
@@ -184,56 +183,62 @@ const Main = () => {
         ></textarea>
         <button
           className="download-button"
-          onClick={() => downloadContent(noteContent, 'notes.txt')}
+          onClick={() => downloadContent(noteContent, 'note.txt')}
         >
-          Download Notes
+          Download Note
         </button>
       </div>
 
-      <div className="input-container">
-        <div>
-          <input
-            type="text"
-            className="name-input"
-            placeholder="Topic Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </div>
-        <div>
-          <input
-            type="text"
-            className="video-url-input"
-            placeholder="Enter YouTube Video URL"
-            value={videoUrl}
-            onChange={(e) => setVideoUrl(e.target.value)}
-          />
-        </div>
-        <div>
-          <button className="add-button" onClick={handleAddVideo}>
-            Add Video
-          </button>
-        </div>
+      <div className="add-video-form">
+        <input
+          type="text"
+          className="name-input"
+          placeholder="Enter Video Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <input
+          type="text"
+          className="video-url-input"
+          placeholder="Enter YouTube Video URL"
+          value={videoUrl}
+          onChange={(e) => setVideoUrl(e.target.value)}
+        />
+        <input
+          type="text"
+          className="subject-input"
+          placeholder="Enter Subject"
+          value={subject}
+          onChange={(e) => setSubject(e.target.value)}
+        />
+        <button className="add-button" onClick={handleAddVideo}>
+          Add Video
+        </button>
       </div>
 
       <div className="video-list">
-        {videos.map((video, index) => (
-          <div key={index} className="video-card">
-            <button
-              className="delete-button"
-              onClick={() => handleDeleteVideo(video._id)}
-            >
-              Delete
-            </button>
-            <iframe
-              title={`Video ${index + 1}`}
-              width="560"
-              height="315"
-              src={video.videoUrl}
-              frameBorder="0"
-              allowFullScreen
-            ></iframe>
-            <p className="video-name">{video.name}</p>
+        {Object.keys(videos).map((subject, index) => (
+          <div key={index} className="subject-group">
+            <h2>{subject}</h2>
+            {videos[subject].map((video, idx) => (
+              <div key={idx} className="video-card">
+                <button
+                  className="delete-button"
+                  onClick={() => handleDeleteVideo(video._id)}
+                >
+                  Delete
+                </button>
+                <iframe
+                  title={`Video ${idx + 1}`}
+                  width="560"
+                  height="315"
+                  src={video.videoUrl}
+                  frameBorder="0"
+                  allowFullScreen
+                ></iframe>
+                <p className="video-name">{video.name}</p>
+              </div>
+            ))}
           </div>
         ))}
       </div>
